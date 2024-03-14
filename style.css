@@ -1,8 +1,0 @@
-.row {
-    width: 100%;
-}
-
-header img {
-    width: 100%; /* Image will take the full width of its container (header) */
-    height: 30vw; /* Maintain aspect ratio */
-}
