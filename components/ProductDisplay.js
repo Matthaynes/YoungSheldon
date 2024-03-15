@@ -17,7 +17,7 @@ app.component('product-display', {
   
           <p v-if="inStock">In Stock</p>
           <p v-else>Out of Stock</p>
-  
+  <p>Price: {{ price }}</p>
           <p>Shipping: {{ shipping }}</p>
           <ul>
             <li v-for="detail in details">{{ detail }}</li>
@@ -58,10 +58,10 @@ app.component('product-display', {
           selectedVariant: 0,
           details: ['20% cotton', '30% wool', '50% polyester'],
           variants: [
-            { id: 2234, color: 'red', image: './assets/images/red_shirt.png', quantity: 50 },
-            { id: 2235, color: 'blue', image: './assets/images/blue_shirt.png', quantity: 20 },
-            { id: 2236, color: 'gold', image: './assets/images/gold_shirt.png', quantity: 10 },
-            { id: 2237, color: 'white', image: './assets/images/white_shirt.png', quantity: 0 }
+            { id: 2234, color: 'red', image: './assets/images/red_shirt.png', quantity: 50, price: 29.95, shipping: '$' + 3},
+            { id: 2235, color: 'blue', image: './assets/images/blue_shirt.png', quantity: 20 , price: 17.95, shipping: 'Free'},
+            { id: 2236, color: 'gold', image: './assets/images/gold_shirt.png', quantity: 10, price: 18.99, shipping: '$' + 5},
+            { id: 2237, color: 'white', image: './assets/images/white_shirt.png', quantity: 0, price: 49.98, shipping: '$' + 10}
           ],
           reviews: []
       }
@@ -90,11 +90,14 @@ app.component('product-display', {
         inStock() {
             return this.variants[this.selectedVariant].quantity
         },
+        price(){
+          return '$' + this.variants[this.selectedVariant].price
+        },
         shipping() {
           if (this.premium) {
             return 'Free'
           }
-          return 2.99
+          return this.variants[this.selectedVariant].shipping
         }
     }
   })
