@@ -3,7 +3,7 @@ app.component('product-details', {
     props: {
       details: {
         type: Array,
-        required: true
+        required: false
       }
     },
     template:
