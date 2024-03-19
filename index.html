@@ -12,10 +12,11 @@
     <link rel="icon" type="image/x-icon" href="/assets/images/sheldon2.avif">
   </head>
   <body>
+    <bgsound src = "assets/audio/young_sheldon.mp3"/>
     <div id="app">
       <div class="nav-bar"></div>
 
-      <div class="cart">Shopping Cart <img class="img-fluid" src="assets/images/shopping.png"/>({{ cart.length }})</div>
+      <div class="cart" style="width: 300px; height: auto;">Shopping Cart </br> <img class="w-25" src="assets/images/shopping.png"/></br>{{ cart.length }} items in cart</div>
       
       <product-display :premium="premium"
       @add-to-cart="updateCart"
